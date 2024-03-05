@@ -10,7 +10,7 @@
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-darwin"
+        "x86_64-linux"
       ];
     in
     rec {

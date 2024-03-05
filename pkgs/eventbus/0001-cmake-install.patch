@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f5b17da..470827d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,6 +10,8 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+ option(EVENTBUS_BUILD_TESTS "Build unit tests." ON)
+ 
+ include(CompilerWarnings)
++include(GNUInstallDirs)
++
+ add_library(project_warnings INTERFACE)
+ set_project_warnings(project_warnings)
+ 
+@@ -45,3 +47,12 @@ endif()
+ 
+ add_subdirectory(eventbus)
+ add_subdirectory(demo)
++
++install(TARGETS eventbus
++        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
++install(FILES include/eventbus/event_bus.hpp
++        DESTINATION include/)
++
++install(FILES
++        eventbus/include/eventbus/detail/function_traits.hpp
++        DESTINATION include/eventbus/detail)
