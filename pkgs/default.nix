@@ -1,2 +1,3 @@
-{ pkgs, nmd ? (import ../nixpkgs.nix) { } }: {
+{ pkgs ? import <nixpkgs> { } }: rec {
+  steam = pkgs.callPackage ./steam { };
 }
